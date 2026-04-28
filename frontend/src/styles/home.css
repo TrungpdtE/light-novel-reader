@@ -1,0 +1,92 @@
+.home {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.header {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header h1 {
+  color: #333;
+  margin-bottom: 15px;
+}
+
+.header nav {
+  display: flex;
+  gap: 20px;
+}
+
+.header nav a {
+  color: #666;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.header nav a:hover {
+  color: #000;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.novels-grid h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 20px;
+}
+
+.novel-card {
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.novel-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.novel-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.novel-card h3 {
+  padding: 10px;
+  font-size: 14px;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.novel-card p {
+  padding: 0 10px 10px;
+  font-size: 12px;
+  color: #999;
+}
+
+.novel-card .status {
+  display: inline-block;
+  padding: 4px 8px;
+  margin: 0 10px 10px;
+  background: #e0e0e0;
+  border-radius: 4px;
+  font-size: 11px;
+  color: #666;
+}
