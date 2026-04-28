@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="vi" class="light">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light Novel Reader - Đọc truyện online</title>
+    <meta name="description" content="Trang web đọc light novel với giao diện đẹp, tuỳ chỉnh dễ dàng">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <main id="mainpart" class="reading-page style-4">
+        <!-- Side Icons -->
+        <section id="rd-side_icon" class="side-icons">
+            <a class="rd_sd-button_item rd_top-left" id="prev-btn" title="Chương trước (Alt+P)">
+                <i class="fas fa-backward"></i>
+            </a>
+            <a class="rd_sd-button_item" id="home-btn" title="Trang chủ (Alt+H)">
+                <i class="fas fa-home"></i>
+            </a>
+            <a class="rd_sd-button_item" id="setting_icon" title="Cài đặt">
+                <i class="fas fa-sliders-h"></i>
+            </a>
+            <a class="rd_sd-button_item" id="chapters_icon" title="Danh sách chương">
+                <i class="fas fa-list"></i>
+            </a>
+            <a class="rd_sd-button_item rd_top-right" id="next-btn" title="Chương tiếp theo (Alt+N)">
+                <i class="fas fa-forward"></i>
+            </a>
+        </section>
+
+        <!-- Chapters Sidebar -->
+        <section id="chapters" class="rd_sidebar rdtoggle">
+            <main class="rdtoggle_body">
+                <header class="rd_sidebar-header clear">
+                    <div class="rd_sidebar-name">
+                        <h5 id="novel-title">Light Novel Reader</h5>
+                        <small id="novel-author">Tác giả</small>
+                    </div>
+                </header>
+                <ul id="chap_list" class="unstyled chapters-list">
+                    <li class="loading"><i class="fas fa-spinner fa-spin"></i> Đang tải...</li>
+                </ul>
+            </main>
+            <div class="black-click"></div>
+        </section>
+
+        <!-- Settings Sidebar -->
+        <section id="setting" class="rdtoggle">
+            <section class="re_set-in basic-section clear rdtoggle_body">
+                <header class="sect-header"><span class="sect-title">⚙️ Tùy chỉnh</span></header>
+                <main class="sect-body">
+                    <!-- Color Theme -->
+                    <div class="set-list set-color clear">
+                        <label class="font-bold">🎨 Màu nền</label>
+                        <div class="set-input clear justify-center">
+                            <span data-color="#fff" data-id="0" style="background-color: #fff" title="Trắng"></span>
+                            <span data-color="#e6f0e6" data-id="1" style="background-color: #e6f0e6" title="Xanh nhạt"></span>
+                            <span data-color="#e3f5fa" data-id="2" style="background-color: #e3f5fa" title="Xanh"></span>
+                            <span data-color="#f6f4ec" data-id="3" style="background-color: #f6f4ec" title="Kem"></span>
+                            <span data-color="#eae4d3" data-id="4" style="background-color: #eae4d3" title="Vàng"></span>
+                            <span data-color="#f5e9ef" data-id="5" style="background-color: #f5e9ef" title="Tím"></span>
+                            <span data-color="#222222" data-id="6" style="background-color: #222222" title="Đen"></span>
+                        </div>
+                    </div>
+
+                    <!-- Font Family -->
+                    <div class="set-list set-font-family clear">
+                        <label class="font-bold">🔤 Font chữ</label>
+                        <div class="set-input">
+                            <select id="font-select">
+                                <option value="'Times New Roman', Georgia, serif">Times New Roman</option>
+                                <option value="'Merriweather', Georgia, serif">Merriweather</option>
+                                <option value="'Lora', Georgia, serif">Lora</option>
+                                <option value="'Roboto', sans-serif">Roboto</option>
+                                <option value="'Noto Sans', sans-serif">Noto Sans</option>
+                                <option value="'Nunito', sans-serif">Nunito</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Font Size -->
+                    <div class="set-list set-font clear">
+                        <label class="font-bold">📏 Kích cỡ chữ</label>
+                        <div class="set-input">
+                            <button class="set-slide_button set-smaller" id="font-decrease"><i class="fas fa-minus"></i></button>
+                            <input class="set-slide_input" id="font-size" disabled value="16px" type="text">
+                            <button class="set-slide_button set-bigger" id="font-increase"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Margin -->
+                    <div class="set-list set-margin clear">
+                        <label class="font-bold">📐 Bản lề</label>
+                        <div class="set-input">
+                            <button class="set-slide_button set-smaller" id="margin-decrease"><i class="fas fa-minus"></i></button>
+                            <input class="set-slide_input" id="margin-size" disabled value="20px" type="text">
+                            <button class="set-slide_button set-bigger" id="margin-increase"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Text Align -->
+                    <div class="set-list set-text-align clear">
+                        <label class="font-bold">🔳 Căn chỉnh</label>
+                        <div class="set-input">
+                            <button data-align="text-left" title="Căn trái"><i class="fas fa-align-left"></i></button>
+                            <button data-align="text-center" title="Căn giữa"><i class="fas fa-align-center"></i></button>
+                            <button data-align="text-right" title="Căn phải"><i class="fas fa-align-right"></i></button>
+                            <button data-align="text-justify" title="Căn đều"><i class="fas fa-align-justify"></i></button>
+                        </div>
+                    </div>
+                </main>
+            </section>
+            <div class="black-click"></div>
+        </section>
+
+        <!-- Main Content -->
+        <div class="container">
+            <div class="row">
+                <div class="reading-content col-12">
+                    <!-- Novel Header -->
+                    <div class="title-top">
+                        <h2 class="title-item text-xl font-bold" id="chapter-title" align="center">Light Novel Reader</h2>
+                        <h4 class="title-item text-base font-bold" id="chapter-subtitle" align="center">Chương 1</h4>
+                    </div>
+
+                    <!-- Content -->
+                    <div id="chapter-content" class="long-text no-select text-justify">
+                        <p class="loading"><i class="fas fa-spinner fa-spin"></i> Đang tải nội dung...</p>
+                    </div>
+
+                    <!-- Navigation -->
+                    <section class="rd-basic_icon row navigation">
+                        <button id="prev-btn-bottom" class="col text-center" title="Chương trước (Alt+P)">
+                            <i class="fas fa-backward"></i>
+                        </button>
+                        <button id="home-btn-bottom" class="col text-center" title="Trang chủ (Alt+H)">
+                            <i class="fas fa-home"></i>
+                        </button>
+                        <button id="next-btn-bottom" class="col text-center" title="Chương tiếp theo (Alt+N)">
+                            <i class="fas fa-forward"></i>
+                        </button>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/reader.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
